@@ -1,0 +1,12 @@
+# En resumen, los handlers son tareas definidas de forma muy 
+# similar a las definidas en las tasks e identificadas por un
+# nombre único y básicamente son utilizados para reiniciar  
+# servicios sin provocar reinicios innecesarios. 
+#
+# Para ejecutar un handler es necesario notificarlo con 
+# el tag "notify"; de  este modo, solo se ejecutará una vez 
+# se hayan completado todas las tareas.
+
+---
+- name: restart httpd 
+     service: name=httpd state=restarted 
