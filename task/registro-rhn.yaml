@@ -1,6 +1,6 @@
 ---
 #Registering system with RHN.
-- name: "RHN | registering system with RHN"
+- name:"registering system with RHN"
   redhat_subscription:
     state: "present"
     username: "{{ satellite_deployment_rhn_user }}"
