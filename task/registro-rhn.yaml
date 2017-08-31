@@ -1,8 +1,4 @@
 ---
-- name: PLAYBOOK DE REGISTRO RHN
-  gather_facts: True
-  hosts: nuevos
-
 - name: "RHN | Registrando Sistema en  RHN"
   redhat_subscription:
      state: "present"
