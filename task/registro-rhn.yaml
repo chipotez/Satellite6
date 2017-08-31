@@ -12,18 +12,17 @@
        tags:
           - "rhn"
           - "skip_ansible_lint" # ANSIBLE0012
-
-
 #Get the pool id for the pool that contains the Satellite product
-#- name: "RHN | get RHN pool id"
-#  shell: "/usr/sbin/subscription-manager list --all --available
-#    --matches='*Satellite*' | awk '/Pool ID/ {print $3}' | head -1"
-#  tags:
-#    - "rhn"
-#  register: "satellite_deployment_pool_id_command"
-#  ignore_errors: "yes"
-#  when: "{{ --matches='*Satellite*' | awk '/Pool ID/ {print $3}' | head -1" is undefined }}"
-#
+     - name: "RHN | get RHN pool id"
+       shell: "/usr/sbin/subscription-manager list --all --available
+         --matches='*Satellite*' | awk '/Pool ID/ {print $3}' | head -1"
+       tags:
+         - "rhn"
+       register: "satellite_deployment_pool_id_command"
+       ignore_errors: "yes"
+       when: "{{ --matches='*Satellite*' | awk '/Pool ID/ {print $3}' | head -1" is undefined }}"
+       debug:
+          msg: " el pool es {{ satellite_deployment_pool_id_command }}"
 #
 #- name: "Set pool_id fact"
 #  set_fact:
