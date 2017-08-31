@@ -5,7 +5,7 @@
   tasks:
 #Registrando sistema en RHN RHN.
       - name: "RHN | Registrando Sistema en  RHN"
-           redhat_subscription:
+        redhat_subscription:
            state: "present"
            username: "{{ satellite_deployment_rhn_user }}"
            password: "{{ satellite_deployment_rhn_password }}"
