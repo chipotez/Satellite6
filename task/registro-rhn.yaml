@@ -13,7 +13,7 @@
      - "rhn"
      - "skip_ansible_lint" # ANSIBLE0012
 - name: "Validando si el servidor esta registrado en RHN"
-     shell: "/usr/sbin/subscription-manager list --consumed --matches='*Satellite*' | awk '/Pool ID/ {print $3}'"
+     shell: /usr/sbin/subscription-manager list --consumed --matches='*Satellite*' | awk '/Pool ID/ {print $3}'
   tags:
      - "rhn"
      - "skip_ansible_lint" # ANSIBLE0012
