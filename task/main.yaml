@@ -6,9 +6,10 @@
   gather_facts: True
   hosts: nuevos
   tasks:
-    - name: Nombre de Host
-      include: registro-rhn.yaml
-      ignore_errors: True
+
+- name: Nombre de Host
+  include: registro-rhn.yaml
+  ignore_errors: True
 #- include: set_facts.yml
 #- include: registro-rhn.yaml
 #- include: network.yml
