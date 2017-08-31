@@ -20,7 +20,7 @@
        ignore_errors: "yes"
        register: "satellite_deployment_pool_id_command"
        when: "{{ satellite_deployment_pool_id is undefined }}"
-       debug:
+     - debug:
           msg: " el pool es {{ satellite_deployment_pool_id_command }}"
 #
 #- name: "Set pool_id fact"
