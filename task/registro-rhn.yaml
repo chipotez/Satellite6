@@ -6,7 +6,7 @@
      - name: Registrando Sistema en Portal de Red Hat.
        redhat_subscription:
              state: present
-             username:"{{ satellite_deployment_rhn_user }}"
+             username: "{{ satellite_deployment_rhn_user }}"
              password:"{{ satellite_deployment_rhn_password }}"
              consumer_name:"{{ satellite_deployment_hostname_full }}"
        tags:
