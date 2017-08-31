@@ -1,0 +1,3 @@
+# Los ficheros del directorio files no se pueden modificar y
+# serán copiados tal cual a los hosts remotos; por ejemplo,
+# un .rpm, el código fuente de una aplicación web, etc
