@@ -1,0 +1,3 @@
+# Variables de configuración al template para que éste lo 
+# aplique a los hosts. Ansible admite variables en los 
+# playbooks y templates utilizando el sistema Jinja2.
