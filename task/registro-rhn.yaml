@@ -3,8 +3,8 @@
   gather_facts: True
   hosts: nuevos
   tasks:
-    - name: "RHN | Registrando Sistema en  RHN"
-      redhat_subscription:
+- name: "RHN | Registrando Sistema en  RHN"
+  redhat_subscription:
          state: "present"
          username: "{{ satellite_deployment_rhn_user }}"
          password: "{{ satellite_deployment_rhn_password }}"
