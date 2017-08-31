@@ -19,7 +19,7 @@
           - "rhn"
        ignore_errors: "yes"
        register: "satellite_deployment_pool_id_command"
-       when: "{{ --matches='*Satellite*' | awk '/Pool ID/ {print $3}' | head -1" is undefined }}"
+       when: "{{ satellite_deployment_pool_id is undefined }}"
        debug:
           msg: " el pool es {{ satellite_deployment_pool_id_command }}"
 #
