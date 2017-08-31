@@ -7,8 +7,8 @@
        redhat_subscription:
              state: present
              username: "{{ satellite_deployment_rhn_user }}"
-             password:"{{ satellite_deployment_rhn_password }}"
-             consumer_name:"{{ satellite_deployment_hostname_full }}"
+             password: "{{ satellite_deployment_rhn_password }}"
+             consumer_name: "{{ satellite_deployment_hostname_full }}"
        tags:
           - "rhn"
           - "skip_ansible_lint" # ANSIBLE0012
