@@ -1,0 +1,3 @@
+# Tienen mas prioridad que las variables definidas bajo defaults.
+# Estas definiciones de variables pueden ser llamadas desde las
+# tasks, en templates.
