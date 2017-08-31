@@ -1,14 +1,17 @@
 ---
-#Registering system with RHN.
-- name:"registering system with RHN"
-  redhat_subscription:
-     state:"present"
-     username:"{{ satellite_deployment_rhn_user }}"
-    password:"{{ satellite_deployment_rhn_password }}"
-    consumer_name:"{{ satellite_deployment_hostname_full }}"
-  tags:
-    - "rhn"
-    - "skip_ansible_lint" # ANSIBLE0012
+- name: Preparando equipo para configuracion minima
+  gather_facts: True
+  hosts: nuevos
+  tasks:
+     - name: Registrando Sistema en Portal de Red Hat.
+       redhat_subscription:
+             state: present
+             username:"{{ satellite_deployment_rhn_user }}"
+             password:"{{ satellite_deployment_rhn_password }}"
+             consumer_name:"{{ satellite_deployment_hostname_full }}"
+       tags:
+          - "rhn"
+          - "skip_ansible_lint" # ANSIBLE0012
 
 
 #Get the pool id for the pool that contains the Satellite product
