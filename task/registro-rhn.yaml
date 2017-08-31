@@ -1,27 +1,28 @@
 ---
+- name: PLAYBOOK DE TAREAS POS-INSTALACIÓN RHEL 7
+  gather_facts: True
+  hosts: nuevos
+  tasks:
 #Registrando sistema en RHN RHN.
-- name: "RHN | Registrando Sistema en  RHN"
-  redhat_subscription:
-    state: "present"
-    username: "{{ satellite_deployment_rhn_user }}"
-    password: "{{ satellite_deployment_rhn_password }}"
-    consumer_name: "{{ satellite_deployment_hostname_full }}"
+      - name: "RHN | Registrando Sistema en  RHN"
+           redhat_subscription:
+           state: "present"
+           username: "{{ satellite_deployment_rhn_user }}"
+           password: "{{ satellite_deployment_rhn_password }}"
+           consumer_name: "{{ satellite_deployment_hostname_full }}"
 # satellite_deployment_hostname_full=define.your.fqdn
 # defina esta variable dentro de survey de Tower
-  tags:
-    - "rhn"
-    - "skip_ansible_lint" # ANSIBLE0012
-
-
-- name: "Validando si el servidor esta registrado en RHN"
-  shell: "/usr/sbin/subscription-manager list --consumed
-    --matches='*Satellite*' | awk '/Pool ID/ {print $3}'"
-  tags:
-    - "rhn"
-    - "skip_ansible_lint" # ANSIBLE0012
-  register: "satellite_deployment_subscribed"
-- debug:
-     msg: " el id es {{ satellite_deployment_subscribed }}"
+        tags:
+           - "rhn"
+           - "skip_ansible_lint" # ANSIBLE0012
+      - name: "Validando si el servidor esta registrado en RHN"
+        shell: "/usr/sbin/subscription-manager list --consumed --matches='*Satellite*' | awk '/Pool ID/ {print $3}'"
+        tags:
+           - "rhn"
+           - "skip_ansible_lint" # ANSIBLE0012
+        register: "satellite_deployment_subscribed"
+      - debug:
+           msg: " el id es {{ satellite_deployment_subscribed }}"
 
 #Get the pool id for the pool that contains the Satellite product
 #- name: "RHN | get RHN pool id"
