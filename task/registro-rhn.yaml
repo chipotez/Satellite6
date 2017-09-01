@@ -51,3 +51,9 @@
        tags:
          - "rhn"
          - "skip_ansible_lint" # ANSIBLE0012
+         
+ #Enabling the repos
+#- name: "RHN | enabling the right repos"
+#  command: "/usr/sbin/subscription-manager repos --disable '*' --enable
+#    rhel-7-server-satellite-{{ satellite_deployment_version }}-rpms
+#    --enable rhel-7-server-rpms --enable rhel-server-rhscl-7-rpms"
