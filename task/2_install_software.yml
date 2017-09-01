@@ -12,10 +12,7 @@
 #Install the base software
       - name: Install software
         yum:
-          name: "{{ item }}"
+          name: satellite
           state: latest
-          with_items:
-                   - "{{ satellite }}"
-          register: echo
 
           
