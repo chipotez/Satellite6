@@ -10,7 +10,7 @@
           name: '*'
           state: latest
 #Install the base software
-      - name:"Install_software"
+      - name: Install_software
         yum:
           name: "{{ item }}"
           state: latest
