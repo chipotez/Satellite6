@@ -58,8 +58,8 @@
        tags:
          - "rhn"
 #Ensure that Red Hat Subscription Manager is not set to use a specific operating system release
-     - name: "RHN | enabling the right repos"
-       command: "/usr/sbin/subscription-manager release --unset"
+     - name: "Clear out any metadata left from any non-Red Hat yum repositories"
+       command: "yum clean all"
        tags:
          - "rhn"
 
