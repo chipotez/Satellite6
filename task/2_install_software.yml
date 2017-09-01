@@ -15,4 +15,7 @@
         yum:
           name: "{{ item }}"
           state: "latest"
-          with_items: "{{ satellite }}"
+          with_items:
+             - satellite
+          register: echo
+          
