@@ -1,14 +1,14 @@
 ---
-- name: "Conditionally decide to load in variables into 'plans' when x is 0, otherwise do not. (2.2)"
-  include_vars:
-    file: "vars/1_install.yml"
+- name: Preparando equipo para configuracion minima
+  hosts: all
+  gather_facts: True
+  vars_files:
+    - vars/1_install.yml
   tasks:
       - name: Actualizando Sistema Operativo
         yum:
           name: '*'
           state: latest
-
-
 #Install the base software
       - name: "Install_software"
         become: "yes"
