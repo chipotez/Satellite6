@@ -1,9 +1,15 @@
 ---
 - name: "Include install vars"
-  include_vars: "vars/install.yml"
+  include_vars: "vars/1_install.yml"
   tags:
     - "install"
     - "update_satellite"
+
+# Update Server
+     - name: Actualizando Sistema Operativo
+       yum:
+         name: '*'
+         state: latest
 
 #Install the base software
 - name: "Install_software"
@@ -11,10 +17,7 @@
   yum:
     name: "{{ item }}"
     state: "latest"
-  with_items: "{{
-    satellite_deployment_packages[satellite_deployment_version | string] +
-    satellite_deployment_extra_packages + satellite_deployment_plugin_packages
-    }}"
+  with_items: "{{ satellite }}"
   tags:
     - "install"
     - "update_satellite"
