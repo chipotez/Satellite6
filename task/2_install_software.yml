@@ -6,10 +6,10 @@
     - "update_satellite"
 
 # Update Server
-     - name: Actualizando Sistema Operativo
-       yum:
-         name: '*'
-         state: latest
+- name: Actualizando Sistema Operativo
+  yum:
+    name: '*'
+    state: latest
 
 #Install the base software
 - name: "Install_software"
