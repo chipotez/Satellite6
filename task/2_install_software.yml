@@ -1,24 +1,17 @@
 ---
 - name: "Include install vars"
   include_vars: "vars/1_install.yml"
-  task:
-# Update Server
-    - name: Actualizando Sistema Operativo
-      yum:
-        name: '*'
-        state: latest
-      tags:
-         - "install"
-         - "update_satellite"
+  tasks:
+      - name: Actualizando Sistema Operativo
+        yum:
+          name: '*'
+          state: latest
+
 
 #Install the base software
-    - name: "Install_software"
-      become: "yes"
-      yum:
-        name: "{{ item }}"
-        state: "latest"
-      with_items: "{{ satellite }}"
-      tags:
-        - "install"
-        - "update_satellite"
-        - "skip_ansible_lint" # ANSIBLE0010
+      - name: "Install_software"
+        become: "yes"
+        yum:
+          name: "{{ item }}"
+          state: "latest"
+          with_items: "{{ satellite }}"
