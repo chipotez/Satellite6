@@ -15,7 +15,7 @@
           name: "{{ item }}"
           state: latest
           with_items:
-                   - satellite
+                   - "{{ satellite }}"
           register: echo
 
           
