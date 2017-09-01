@@ -52,6 +52,17 @@
          - "rhn"
          - "skip_ansible_lint" # ANSIBLE0012
          
+#Ensure that Red Hat Subscription Manager is not set to use a specific operating system release
+     - name: "RHN | enabling the right repos"
+       command: "/usr/sbin/subscription-manager release --unset"
+       tags:
+         - "rhn"
+#Ensure that Red Hat Subscription Manager is not set to use a specific operating system release
+     - name: "RHN | enabling the right repos"
+       command: "/usr/sbin/subscription-manager release --unset"
+       tags:
+         - "rhn"
+
  #Enabling the repos
 #- name: "RHN | enabling the right repos"
 #  command: "/usr/sbin/subscription-manager repos --disable '*' --enable
