@@ -1,5 +1,5 @@
 ---
-- name: Conditionally decide to load in variables into 'plans' when x is 0, otherwise do not. (2.2)
+- name: "Conditionally decide to load in variables into 'plans' when x is 0, otherwise do not. (2.2)"
   include_vars:
     file: "vars/1_install.yml"
   tasks:
