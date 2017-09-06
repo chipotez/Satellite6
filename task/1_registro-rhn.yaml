@@ -11,17 +11,17 @@
              consumer_name: "{{ satellite_deployment_hostname_full }}"
        tags:
           - "rhn"
-          - "skip_ansible_lint" # ANSIBLE0012
+          - "skip_ansible_lint"
 
-     - name: "Check if Satellite is subscribed"
+     - name: "Validando si el equipo esta registrado en RHN"
        shell: "/usr/sbin/subscription-manager list --consumed --matches='*Satellite*' | awk '/Pool ID/ {print $3}'"
        tags:
           - "rhn"
-          - "skip_ansible_lint" # ANSIBLE0012
+          - "skip_ansible_lint"
        register: "satellite_deployment_subscribed"
        
-     #Get the pool id for the pool that contains the Satellite product
-     - name: "RHN | get RHN pool id"
+     #Obteniendo pool_id que contiene satellite
+     - name: "RHN | Obteniendo RHN pool id"
        shell: "/usr/sbin/subscription-manager list --all --available
          --matches='*Satellite*' | awk '/Pool ID/ {print $3}' | head -1"
        tags:
@@ -31,40 +31,34 @@
        when: "{{ satellite_deployment_pool_id is undefined }}"
        
  
-     - name: "Set pool_id fact"
+     - name: "Asignando pool_id como variable"
        set_fact:
          "satellite_deployment_pool_id": "{{ satellite_deployment_pool_id_command.stdout }}"
        when: "{{ satellite_deployment_pool_id is undefined }}"
 
-#Attaching the system to the right Pool
-     - name: "RHN | subscribing to the right pool"
+#Asignando equipo a pool_id
+     - name: "RHN | asignando pool id al equipo"
        command: "/usr/sbin/subscription-manager attach --pool={{ satellite_deployment_pool_id }}"
        tags:
          - "rhn"
-         - "skip_ansible_lint" # ANSIBLE0012
+         - "skip_ansible_lint"
        ignore_errors: "yes"
        when: "{{ satellite_deployment_subscribed.stdout == '' }}"
 
-#Enabling the repos
-     - name: "RHN | enabling the right repos"
+#Habilitando repositorios.
+     - name: "RHN | habilitando repositorios necesarios"
        command: "/usr/sbin/subscription-manager repos --disable '*' --enable=rhel-7-server-rpms --enable=rhel-server-rhscl-7-rpms --enable=rhel-7-server-satellite-6.2-rpms "
        tags:
          - "rhn"
-         - "skip_ansible_lint" # ANSIBLE0012
+         - "skip_ansible_lint"
          
-#Ensure that Red Hat Subscription Manager is not set to use a specific operating system release
+#Asegurando que RSM no esta configurado para usar una version en especifica de S.O.
      - name: "RHN | enabling the right repos"
        command: "/usr/sbin/subscription-manager release --unset"
        tags:
          - "rhn"
-#Ensure that Red Hat Subscription Manager is not set to use a specific operating system release
-     - name: "Clear out any metadata left from any non-Red Hat yum repositories"
+#Limpiando medatada de los repositorios.
+     - name: "Limpiando metadata de los repositorios."
        command: "yum clean all"
        tags:
          - "rhn"
-
- #Enabling the repos
-#- name: "RHN | enabling the right repos"
-#  command: "/usr/sbin/subscription-manager repos --disable '*' --enable
-#    rhel-7-server-satellite-{{ satellite_deployment_version }}-rpms
-#    --enable rhel-7-server-rpms --enable rhel-server-rhscl-7-rpms"
