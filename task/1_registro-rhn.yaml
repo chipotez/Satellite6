@@ -9,6 +9,7 @@
              username: "{{ satellite_deployment_rhn_user }}"
              password: "{{ satellite_deployment_rhn_password }}"
              consumer_name: "{{ satellite_deployment_hostname_full }}"
+             force_register: yes
        tags:
           - "rhn"
           - "skip_ansible_lint"
