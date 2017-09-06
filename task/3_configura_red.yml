@@ -8,20 +8,18 @@
        tags:
            - "set_network"
 
-     - name: "Set network interface GW"
-       shell: "nmcli con mod {{ satellite_deployment_net_interface }} ipv4.gateway
-         {{ satellite_deployment_gw_address }}"
+     - name: Set network interface GW
+       shell: "nmcli con mod {{ satellite_deployment_net_interface }} ipv4.gateway {{ satellite_deployment_gw_address }}"
        tags:
          - "set_network"
 
-     - name: "Set network interface method manual"
-        shell: "nmcli con mod {{ satellite_deployment_net_interface }} ipv4.method manual"
+     - name: Set network interface method manual
+        shell: "nmcli con mod '{{ satellite_deployment_net_interface }}' ipv4.method manual"
        tags:
          - "set_network"
 
      - name: "Set network interface autoconnect"
-       shell: "nmcli con mod {{ satellite_deployment_net_interface }}
-         connection.autoconnect yes"
+       shell: "nmcli con mod {{ satellite_deployment_net_interface }} connection.autoconnect yes"
        tags:
          - "set_network"
 
