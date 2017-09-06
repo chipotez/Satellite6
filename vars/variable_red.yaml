@@ -1,0 +1,14 @@
+---
+# MIS VARIABLES DE RED
+satellite_deployment_ip_address: "10.1.0.10"
+satellite_deployment_network_address: "10.1.0.10"
+satellite_deployment_net_prefix: "27"
+satellite_deployment_gw_address: "10.1.0.1"
+satellite_deployment_net_interface: "eth1"
+satellite_deployment_dhcp_interface: "{{ satellite_deployment_net_interface }}"
+satellite_deployment_dns_interface: "{{ satellite_deployment_net_interface }}"
+satellite_deployment_dns_forwarder: "10.1.0.1"
+satellite_deployment_dns_zone: "sat.midominio.com"
+satellite_deployment_dns_reverse_zone: "0.1.10.in-addr.arpa"
+satellite_deployment_dhcp_start: "10.1.0.11"
+satellite_deployment_dhcp_end: "10.1.0.60"
