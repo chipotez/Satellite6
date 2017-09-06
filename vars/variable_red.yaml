@@ -2,7 +2,7 @@
 # MIS VARIABLES DE RED
 satellite_deployment_ip_address: "192.168.0.20"
 satellite_deployment_network_address: "192.168.0.20"
-satellite_deployment_net_prefix: "27"
+satellite_deployment_net_prefix: "32"
 satellite_deployment_gw_address: "192.168.0.1"
 satellite_deployment_net_interface: "eth0"
 satellite_deployment_dhcp_interface: "{{ satellite_deployment_net_interface }}"
