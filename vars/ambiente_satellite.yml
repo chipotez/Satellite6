@@ -1,9 +1,0 @@
----
-# MY SATELLITE ENVIRONMENT VARIABLES
-# main vars
-satellite_deployment_hostname_short: "sat"
-satellite_deployment_hostname_full: "sat.domain.org"
-satellite_deployment_admin_username: "admin"
-satellite_deployment_admin_password: "123456"
-satellite_deployment_organization: "ORG"
-satellite_deployment_location: "MX"
