@@ -2,8 +2,6 @@
 - name: Preparando equipo para configuracion minima
   hosts: all
   gather_facts: True
-  vars_files:
-    - ../vars/1_install.yml
   tasks:
       - name: Actualizando Sistema Operativo
         yum:
