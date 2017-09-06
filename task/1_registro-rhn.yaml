@@ -53,7 +53,7 @@
          - "skip_ansible_lint"
          
 #Asegurando que RSM no esta configurado para usar una version en especifica de S.O.
-     - name: "RHN | enabling the right repos"
+     - name: "RHN | habilitando repositorios"
        command: "/usr/sbin/subscription-manager release --unset"
        tags:
          - "rhn"
