@@ -2,7 +2,7 @@
 - name: Preparando equipo para configuracion minima
   gather_facts: True
   hosts: nuevos
-    tasks:
+  tasks:
      - name: Registrando Sistema en Portal de Red Hat.
        shell: "nmcli con mod {{ satellite_deployment_net_interface }} ipv4.addresses '{{ satellite_deployment_ip_address }}/{{ satellite_deployment_net_prefix }}'"
        tags:
