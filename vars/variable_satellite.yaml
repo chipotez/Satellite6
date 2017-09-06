@@ -1,0 +1,8 @@
+---
+# MI SATELLITE VARIABLES
+satellite_deployment_hostname_short: "satellite"
+satellite_deployment_hostname_full: "satellite.midominio.com"
+satellite_deployment_admin_username: "admin"
+satellite_deployment_admin_password: "123456"
+satellite_deployment_organization: "ORG"
+satellite_deployment_location: "MX"
