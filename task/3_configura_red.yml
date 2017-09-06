@@ -1,7 +1,7 @@
 ---
 - name: Incluye variables de variable_red.yaml
   include_vars:
-    file: /vars/variable_red.yaml
+    file: "../vars/variable_red.yaml"
 
 - name: "Set network interface IP"
   shell: "nmcli con mod {{ satellite_deployment_net_interface }}
