@@ -1,29 +1,31 @@
 ---
-- name: Preparando equipo para configuracion minima
+- name: Preparando equipo para configuracion de Red
   gather_facts: True
   hosts: nuevos
+    vars_files:
+    - /vars/variable_red.yaml
   tasks:
-     - name: Registrando Sistema en Portal de Red Hat.
+     - name: "Asignando IP a interfaz de Red"
        shell: "nmcli con mod {{ satellite_deployment_net_interface }} ipv4.addresses '{{ satellite_deployment_ip_address }}/{{ satellite_deployment_net_prefix }}'"
        tags:
            - "set_network"
 
-     - name: Set network interface GW
+     - name: "Asignando GW a IP"
        shell: "nmcli con mod {{ satellite_deployment_net_interface }} ipv4.gateway {{ satellite_deployment_gw_address }}"
        tags:
          - "set_network"
 
-     - name: Set network interface method manual
+     - name: "Asisgnando metodo manual a interfaz de red"
        shell: "nmcli con mod '{{ satellite_deployment_net_interface }}' ipv4.method manual"
        tags:
          - "set_network"
 
-     - name: "Set network interface autoconnect"
+     - name: "Configurando interfaz de red red en autoconnect"
        shell: "nmcli con mod {{ satellite_deployment_net_interface }} connection.autoconnect yes"
        tags:
          - "set_network"
 
-     - name: "Set network interface UP"
+     - name: "iniciando interfaz de red (UP)"
        shell: "nmcli con up {{ satellite_deployment_net_interface }}"
        tags:
          - "set_network"
