@@ -13,7 +13,7 @@
 #- include: set_facts.yml
 #- include: registro-rhn.yaml
 #- include: network.yml
-- include: 3_configura_red.yml
+#- include: 3_configura_red.yml
 #  when: "{{ satellite_deployment_set_network }}"
 #- include: firewall.yml
 - include: 2_install_software.yml
